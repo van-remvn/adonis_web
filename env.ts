@@ -25,7 +25,6 @@ export default Env.rules({
   NODE_ENV: Env.schema.enum(['development', 'production', 'test'] as const),
   DB_CONNECTION: Env.schema.string(),
   /* Variables for the MYSQL driver */
-  Variables for the MYSQL driver
   MYSQL_HOST: Env.schema.string({ format: 'host' }),
   MYSQL_PORT: Env.schema.number(),
   MYSQL_USER: Env.schema.string(),
