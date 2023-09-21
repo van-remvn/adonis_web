@@ -24,6 +24,15 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
-Route.post('/register', 'AuthController.register').as('auth.register')
-Route.post('/login', 'AuthController.login').as('auth.login')
-Route.post('/logout', 'AuthController.logout').as('auth.logout')
+// Route.post('/register', 'AuthController.register').as('auth.register')
+// Route.post('/login', 'AuthController.login').as('auth.login')
+// Route.post('/logout', 'AuthController.logout').as('auth.logout')
+
+// import Route from '@ioc:Adonis/Core/Route'
+
+Route.group(() => {
+  Route.group(() => {
+    Route.post('register', 'AuthController.register')
+    Route.post('login', 'AuthController.login')
+  }).prefix('auth')
+}).prefix('api/v1')
